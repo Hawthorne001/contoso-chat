@@ -5,3 +5,4 @@ azure-ai-ml
 azure-ai-resources
 azure-search-documents==11.4.0
 nbconvert
+tornado>=6.4.1 # not directly required, pinned by Snyk to avoid a vulnerability

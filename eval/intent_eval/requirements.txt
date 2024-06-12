@@ -1,3 +1,4 @@
 promptflow
 promptflow-tools
 azure-ai-ml
+azure-identity>=1.16.1 # not directly required, pinned by Snyk to avoid a vulnerability

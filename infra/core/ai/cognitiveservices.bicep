@@ -5,7 +5,7 @@ param tags object = {}
 @description('The custom subdomain name used to access the API. Defaults to the value of the name parameter.')
 param customSubDomainName string = name
 param deployments array = []
-param kind string = 'OpenAI'
+param kind string = 'AIServices'
 
 @allowed([ 'Enabled', 'Disabled' ])
 param publicNetworkAccess string = 'Enabled'
@@ -44,10 +44,12 @@ resource deployment 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01
   }
   sku: contains(deployment, 'sku') ? deployment.sku : {
     name: 'Standard'
-    capacity: 20
+    capacity: 10
   }
 }]
 
 output endpoint string = account.properties.endpoint
+output endpoints object = account.properties.endpoints
 output id string = account.id
 output name string = account.name
+output skuName string = account.sku.name

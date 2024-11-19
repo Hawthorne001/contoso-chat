@@ -15,9 +15,13 @@ RUN sudo apt-get update && sudo apt-get install -y \
 
 # Copy requirements.txt and install the Python packages
 # Install keyring-related and IPython packages in the same layer to reduce the image size and build time
-COPY requirements.txt .
-RUN pip install -r requirements.txt \
-    && pip install keyrings.alt dbus-python ipython ipykernel
+COPY ./src/api/requirements.txt .
+RUN pip install -r requirements.txt \    
+    && pip install keyrings.alt dbus-python ipython ipykernel mkdocs-material
 
 # Configure the IPython kernel
 RUN ipython kernel install --name "python3" --user
+
+# Install daily version of azd for latest changes
+# See: https://github.com/Azure/azure-dev/tree/main/cli/installer#download-from-daily-builds
+RUN curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --version daily

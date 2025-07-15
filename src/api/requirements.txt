@@ -10,14 +10,14 @@ tabulate
 fastapi
 fastapi[standard]
 requests
-gunicorn==21.2.0
+gunicorn==23.0.0
 
 # Azure Services
 azure-cosmos
 azure-search-documents==11.4.0
 azure-keyvault-secrets
 azure-monitor-opentelemetry-exporter
-aiohttp==3.9.5
+aiohttp==3.12.14
 azure-cognitiveservices-speech==1.37.0
 prompty[azure]==0.1.24
 azure-monitor-opentelemetry-exporter
